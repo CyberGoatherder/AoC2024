@@ -34,4 +34,5 @@ for i, line in enumerate(numbers_per_line, start=1):
     if valid_line == True:
         safe_count += 1
 
-print(safe_count)
+solution = safe_count
+print(f"\n\033[92m[+] Solution: {solution}\033[0m\n")

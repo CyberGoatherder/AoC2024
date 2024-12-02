@@ -22,6 +22,7 @@ The engineers are trying to figure out which reports are safe. The Red-Nosed rea
 
 * The levels are either all increasing or all decreasing.
 * Any two adjacent levels differ by at least one and at most three.
+
 In the example above, the reports can be found safe or unsafe by checking those rules:
 
 * 7 6 4 2 1: Safe because the levels are all decreasing by 1 or 2.
@@ -34,7 +35,7 @@ So, in this example, 2 reports are safe.
 
 Analyze the unusual data from the engineers. How many reports are safe?
 
-### Part Two ---
+### Part Two
 The engineers are surprised by the low number of safe reports until they realize they forgot to tell you about the Problem Dampener.
 
 The Problem Dampener is a reactor-mounted module that lets the reactor safety systems tolerate a single bad level in what would otherwise be a safe report. It's like the bad level never happened!

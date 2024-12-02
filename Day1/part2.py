@@ -26,4 +26,5 @@ sums = []
 for a, b in zip(list1, match_counters):
     sums.append(int(a) * int(b))
 
-print(sum(sums))
+solution = (sum(sums))
+print(f"\n\033[92m[+] Solution: {solution}\033[0m\n")
