@@ -39,7 +39,7 @@ def save_problem_description(day, folder):
     main_content = soup.find('main')
     
     if main_content:
-        with open(f"{folder}/info.txt", 'w', encoding='utf-8') as f:
+        with open(f"{folder}/day{day}.md", 'w', encoding='utf-8') as f:
             f.write(main_content.get_text())
 
 def save_input_data(day, folder):
