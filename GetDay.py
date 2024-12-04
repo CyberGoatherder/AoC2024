@@ -1,4 +1,4 @@
-### Script to automate the creation of a new day's folder and pull the necessary files from the AoC website.
+### Script to automate the creation of a new day's subfolder, pulling the necessary files from the AoC site.
 
 import os
 import requests
@@ -21,7 +21,7 @@ def get_session_cookie():
             print("[+] Session Cookie Retrieved")
             return f.read().strip()
     except FileNotFoundError:
-        print("Please create a session.txt file with your session cookie")
+        print("[!]Please create a session.txt file with your session cookie")
         sys.exit(1)
 
 def save_problem_description(day, folder):
@@ -30,7 +30,7 @@ def save_problem_description(day, folder):
     
     response = requests.get(url, cookies={'session': session})
     if response.status_code != 200:
-        print(f"Failed to get problem description. Status code: {response.status_code}")
+        print(f"[+] Failed to get problem description. Status code: {response.status_code}")
         return
     else:
         print("[+] Problem Description Retrieved")
@@ -48,7 +48,7 @@ def save_input_data(day, folder):
     
     response = requests.get(url, cookies={'session': session})
     if response.status_code != 200:
-        print(f"Failed to get input data. Status code: {response.status_code}")
+        print(f"[+] Failed to get input data. Status code: {response.status_code}")
         return
     else:
         print("[+] Input Data Retrieved")
@@ -57,13 +57,13 @@ def save_input_data(day, folder):
         f.write(response.text)
 
 def create_solution_template(folder):
-    template = '''
-# Setup the input lists
+    template = r'''
+# Setup the input
 with open("input.txt") as file:
     lines = file.readlines()
 
 # Do stuff here
-
+solution = 0
 print(f"\n\033[92m[+] Solution: {solution}\033[0m\n")
 '''
     with open(f"{folder}/part1.py", 'w') as f:
@@ -76,7 +76,7 @@ def main():
     save_problem_description(day, folder)
     save_input_data(day, folder)
     create_solution_template(folder)
-    print(f"\n\033[92m[+] Successfully created Day{day} subfolder with all necessary files\033[0m\n")
+    print(f"\n\033[92m[+] Day{day} subfolder created with all necessary files\033[0m\n")
 
 if __name__ == "__main__":
     main() 
